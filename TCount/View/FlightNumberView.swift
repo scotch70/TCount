@@ -14,18 +14,18 @@ struct FlightNumberView: View {
     var body: some View {
         VStack {
             LogoView()
+            Text("Flight number")
+                .font(.largeTitle)
+                .fontWeight(.semibold)
             Form {
                 Section {
-                    Text("Flight number")
-                        .font(.largeTitle)
-                        .fontWeight(.semibold)
                     TextField("Flight number", text: $flightNumber)
                         .disableAutocorrection(true)
                         .padding()
                         .cornerRadius(5.0)
                 }
             }
-            NavigationLink(destination: SectionCountView(viewModel: CountViewModel())) {
+            NavigationLink(destination: SectionCountView(sectionViewModel: CountViewModel())) {
                 Text("Retrieve data")
                     .font(.headline)
                     .foregroundColor(.white)

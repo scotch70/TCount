@@ -8,47 +8,69 @@
 import SwiftUI
 
 class CountViewModel: ObservableObject {
+    @Published private var sections: SectionModel = CountViewModel.createSection(section: sectionArray)
     
-    @Published var sections = [
-        SectionModel(id: 1, section: 0, selected: false),
-        SectionModel(id: 2, section: 0, selected: false),
-        SectionModel(id: 3, section: 0, selected: false),
-        SectionModel(id: 4, section: 0, selected: false)
-    ]
+    static private var sectionArray = [0,0,0,0]
     
+    let total = sectionArray.reduce(0,+)
     
-    
-    
+    static func createSection(section: Array<Int>) -> SectionModel {
+        return SectionModel(totalAmountOfSections: section.count) { i in
+            return section[i]
+        }
+    }
     
     //MARK: - Intents:
     
-    func incrementPoints(id: Int) {
-        if let row = self.sections.firstIndex(where: {$0.id == id}) {
-            sections[row].section += 1
-        }
+    
+    func chooseSection(section: SectionModel.Section) {
+        sections.chooseSection(section: section)
     }
     
-    func decrementPoints(id: Int) {
-        if let row = self.sections.firstIndex(where: {$0.id == id}) {
-            sections[row].section -= 1
-        }
-    }
-    func selectionBool(id: Int) -> Color {
-        if let row = self.sections.firstIndex(where: {$0.id == id}) {
-            sections[row].selected = true
-            decrementPoints(id: id)
-            incrementPoints(id: id)
-            return Color.green
-        }
-        return Color.black
-        
+    func incrementPoints(section: SectionModel.Section) {
+        sections.increaseSection(section: section)
     }
     
-    func total() -> Int {
-        let total = sections[0].section + sections[1].section + sections[2].section + sections[3].section
-        return total
+    func decreasePoints(section: SectionModel.Section) {
+        sections.decreaseSection(section: section)
     }
     
+    //MARK: - Access to the Model:
+    
+    var section: Array<SectionModel.Section> {
+        sections.sections
+    }
+    
+    
+//    var isPressed: Color {
+//        for sec in sections {
+//            if sec.selected == true {
+//                return .green
+//            }
+//        }
+//        return .black
+//    }
+//
+//    func selectedButton(id: Int) -> Bool {
+//        if let row = self.sections.firstIndex(where: {$0.id == id}) {
+//            return sections[row].selected == true
+//        }
+//        return false
+//    }
+//
+//
+//
+//    func decrementPoints(id: Int) {
+//        if let row = self.sections.firstIndex(where: {$0.id == id}) {
+//            sections[row].section -= 1
+//        }
+//    }
+//
+//    func total() -> Int {
+//        let total = sections[0].section + sections[1].section + sections[2].section + sections[3].section
+//        return total
+//    }
+//
 //    func minusButton() {
 //        switch (sectionA.isSelected, sectionB.isSelected, sectionC.isSelected, sectionD.isSelected) {
 //        case (true,false,false,false):
@@ -97,7 +119,7 @@ class CountViewModel: ObservableObject {
     
     
     
-    //MARK: - Access to the Model:
+    
     
     
 

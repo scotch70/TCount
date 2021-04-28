@@ -9,12 +9,13 @@
 import SwiftUI
 
 struct AddSubtractButton: View {
-    @ObservedObject var viewModel = CountViewModel()
+    var decreaseSection: SectionModel.Section?
+    var increaseSecion: SectionModel.Section?
     var imageSubButton: String
     
     var body: some View {
         Button(action: {
-            viewModel.decrementPoints(id: 1)
+           
         }) {
             ZStack{
                 RoundedRectangle(cornerRadius: 10.0).fill(Color.white)

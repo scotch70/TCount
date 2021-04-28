@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct SectionCountView: View {
-    @ObservedObject var viewModel = CountViewModel()
+    @ObservedObject var sectionViewModel: CountViewModel
+    @State private var dataView: Bool = false
+    
     
     var body: some View {
         HStack {
@@ -18,28 +20,35 @@ struct SectionCountView: View {
                     .resizable()
                     .scaledToFit()
                 VStack {
-                    ForEach(viewModel.sections) { section in
-                            Button(action: {
-                               // viewModel.selectionBool(id: section.id)
-                            }) {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 10).stroke(Color.black, lineWidth: 1)
-                                    Text("\(section.section)")
-                                }
+                    ForEach(sectionViewModel.section) { section in
+                        Button(action: {
+                            sectionViewModel.chooseSection(section: section)
+                        }) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 10).stroke(Color(section.selected ? .green : .black))
+                                Text("\(section.section)")
                             }
+                        }
                     }
                 }
             }
             AddSubtractButton(imageSubButton: "plus.circle")
         }
         .padding()
-        .navigationBarTitle(Text("Total: \(viewModel.total())"), displayMode: .inline)
+        .navigationBarTitle(Text("Total: \(sectionViewModel.total)"), displayMode: .inline)
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button {
+                    dataView.toggle()
+                } label: {
+                    Label("Save", systemImage: "square.and.arrow.down")
+                }
+                .sheet(isPresented: $dataView) {
+                    SaveDataView()
+                }
+            }
+        }
     }
     
 }
 
-struct SectionCountView_Previews: PreviewProvider {
-    static var previews: some View {
-        SectionCountView(viewModel: CountViewModel())
-    }
-}

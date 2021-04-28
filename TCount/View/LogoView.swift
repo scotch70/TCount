@@ -24,7 +24,7 @@ struct LogoView: View {
                 .offset(y: -75)
                 .rotationEffect(.degrees(spin ? 0 : 360))
                 .animation(Animation.linear(duration: 5).repeatCount(1, autoreverses: false))
-                            .onAppear(){ self.spin.toggle() }
+                .onAppear(){ self.spin.toggle() }
             
              Text("t")
                 .font(.system(size: 60))

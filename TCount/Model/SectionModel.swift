@@ -7,9 +7,54 @@
 
 import Foundation
 
-struct SectionModel: Identifiable {
-    var id: Int
-    var section: Int
-    var selected: Bool
+struct SectionModel {
+    var sections: Array<Section>
+    
+    var indexOfTheSelectedSection: Int?
+    
+    mutating func chooseSection(section: Section) {
+        print("Section chosen: \(section)")
+        if let chosenIndex: Int = sections.firstIndext(matching: section) {
+            for index in sections.indices {
+                sections[index].selected = false
+            }
+            self.sections[chosenIndex].selected = true
+        }
+        
+    }
+    
+    mutating func increaseSection(section: Section) {
+        if let chosenIndex: Int = sections.firstIndext(matching: section) {
+            if self.sections[chosenIndex].selected == true {
+                self.sections[chosenIndex].section += 1
+            }
+        }
+        
+    }
+    
+    mutating func decreaseSection(section: Section) {
+        if let chosenIndex: Int = sections.firstIndext(matching: section) {
+            if self.sections[chosenIndex].selected == true {
+                self.sections[chosenIndex].section -= 1
+            }
+        }
+    }
+    
+
+    
+    
+    init(totalAmountOfSections: Int, sectionContent: (Int) -> Int) {
+        sections = Array<Section>()
+        for idIndex in 0..<totalAmountOfSections {
+            let content = sectionContent(idIndex)
+            sections.append(Section(id: idIndex + 1, section: content))
+        }
+    }
+    
+    struct Section: Identifiable {
+        var id: Int
+        var section: Int
+        var selected: Bool = false
+    }
 
 }

@@ -61,6 +61,7 @@ struct LoginView: View {
         }
         .navigationBarTitle("TCount")
         .alert(isPresented: $shouldShowAlert) { Alert(title: Text("Email/Password incorrect")) }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     
