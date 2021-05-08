@@ -16,11 +16,12 @@
 		A4D85E86262F0C31002ED27D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4D85E85262F0C31002ED27D /* Assets.xcassets */; };
 		A4D85E89262F0C31002ED27D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4D85E88262F0C31002ED27D /* Preview Assets.xcassets */; };
 		A4D85E92262F0C8D002ED27D /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D85E91262F0C8D002ED27D /* LogoView.swift */; };
-		A4D85E95262F0C95002ED27D /* AddSubtractButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D85E94262F0C95002ED27D /* AddSubtractButton.swift */; };
 		A4D85E9E262F0D67002ED27D /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D85E9D262F0D67002ED27D /* SectionModel.swift */; };
 		A4D85EA1262F0E7A002ED27D /* CountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D85EA0262F0E7A002ED27D /* CountViewModel.swift */; };
 		A4D85EA6262F1CB7002ED27D /* SectionCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D85EA5262F1CB7002ED27D /* SectionCountView.swift */; };
 		A4D85EAB262F28F6002ED27D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D85EAA262F28F6002ED27D /* LoginView.swift */; };
+		A4F6B8BE2639ED2500955596 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F6B8BD2639ED2500955596 /* TextView.swift */; };
+		A4F6B8C42639F34000955596 /* FlightNumberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F6B8C32639F34000955596 /* FlightNumberViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,11 +36,12 @@
 		A4D85E88262F0C31002ED27D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A4D85E8A262F0C31002ED27D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A4D85E91262F0C8D002ED27D /* LogoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
-		A4D85E94262F0C95002ED27D /* AddSubtractButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSubtractButton.swift; sourceTree = "<group>"; };
 		A4D85E9D262F0D67002ED27D /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		A4D85EA0262F0E7A002ED27D /* CountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountViewModel.swift; sourceTree = "<group>"; };
 		A4D85EA5262F1CB7002ED27D /* SectionCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCountView.swift; sourceTree = "<group>"; };
 		A4D85EAA262F28F6002ED27D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		A4F6B8BD2639ED2500955596 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		A4F6B8C32639F34000955596 /* FlightNumberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightNumberViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +118,8 @@
 				A4D85EAA262F28F6002ED27D /* LoginView.swift */,
 				A47CC9872632B80100DF21FE /* FlightNumberView.swift */,
 				A4D85EA5262F1CB7002ED27D /* SectionCountView.swift */,
-				A4D85E94262F0C95002ED27D /* AddSubtractButton.swift */,
 				A4B7CF792639ABF900778F64 /* SaveDataView.swift */,
+				A4F6B8BD2639ED2500955596 /* TextView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -127,6 +129,7 @@
 			children = (
 				A4D85EA0262F0E7A002ED27D /* CountViewModel.swift */,
 				A4B7CF6E263979CA00778F64 /* UserViewModel.swift */,
+				A4F6B8C32639F34000955596 /* FlightNumberViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -205,11 +208,12 @@
 				A4D85EAB262F28F6002ED27D /* LoginView.swift in Sources */,
 				A4B7CF6B2638276300778F64 /* Array + Index.swift in Sources */,
 				A4D85EA1262F0E7A002ED27D /* CountViewModel.swift in Sources */,
+				A4F6B8C42639F34000955596 /* FlightNumberViewModel.swift in Sources */,
 				A4D85E82262F0C2E002ED27D /* TCountApp.swift in Sources */,
-				A4D85E95262F0C95002ED27D /* AddSubtractButton.swift in Sources */,
 				A4D85E9E262F0D67002ED27D /* SectionModel.swift in Sources */,
 				A47CC9882632B80100DF21FE /* FlightNumberView.swift in Sources */,
 				A4B7CF7226397CB000778F64 /* UserModel.swift in Sources */,
+				A4F6B8BE2639ED2500955596 /* TextView.swift in Sources */,
 				A4D85EA6262F1CB7002ED27D /* SectionCountView.swift in Sources */,
 				A4B7CF7A2639ABF900778F64 /* SaveDataView.swift in Sources */,
 			);

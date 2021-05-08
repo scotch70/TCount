@@ -38,7 +38,7 @@ struct LoginView: View {
                 }
                
                 NavigationLink(destination: FlightNumberView(), isActive: $loginIsCorrect) {
-                    Text("Login")
+                    TextView(text: "Login")
                         .onTapGesture {
                             let loginIsCorrect = username == "U01EEF" && password == "12345"
                             
@@ -48,11 +48,7 @@ struct LoginView: View {
                                 self.shouldShowAlert = true
                             }
                         }
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.green)
-                        .cornerRadius(10)
+                        
                 }
                 
                 

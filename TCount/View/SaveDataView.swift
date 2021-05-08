@@ -9,9 +9,10 @@ import SwiftUI
 
 struct SaveDataView: View {
     @Environment(\.presentationMode) var presentationMode
-    @State private var isToggle : Bool = false
+    @State private var pssPerformed : Bool = false
+    @State private var paxCountAPP : Bool = false
     @ObservedObject var data = CountViewModel()
-
+    var totalPax: Int
     
     var body: some View {
         VStack {
@@ -37,10 +38,14 @@ struct SaveDataView: View {
                         Text("Total pax:")
                             .font(.headline)
                         Spacer()
-                        Text("\(data.total)")
+                        Text("\(totalPax)")
+                    }
+                    Toggle(isOn: $paxCountAPP){
+                        Text("Pax count N/A:")
+                            .font(.headline)
                     }
                     
-                    Toggle(isOn: $isToggle){
+                    Toggle(isOn: $pssPerformed){
                         Text("Pss performed:")
                             .font(.headline)
                     }
@@ -64,12 +69,7 @@ struct SaveDataView: View {
                 Button {
                     print("data saved")
                 } label: {
-                    Text("Save")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.green)
-                        .cornerRadius(10)
+                    TextView(text: "Save")
                 }
             }
             .padding()
@@ -77,8 +77,3 @@ struct SaveDataView: View {
     }
 }
 
-struct SaveDataView_Previews: PreviewProvider {
-    static var previews: some View {
-        SaveDataView()
-    }
-}

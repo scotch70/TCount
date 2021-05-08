@@ -13,7 +13,6 @@ struct SectionModel {
     var indexOfTheSelectedSection: Int?
     
     mutating func chooseSection(section: Section) {
-        print("Section chosen: \(section)")
         if let chosenIndex: Int = sections.firstIndext(matching: section) {
             for index in sections.indices {
                 sections[index].selected = false
@@ -26,23 +25,24 @@ struct SectionModel {
     mutating func increaseSection(section: Section) {
         if let chosenIndex: Int = sections.firstIndext(matching: section) {
             if self.sections[chosenIndex].selected == true {
-                self.sections[chosenIndex].section += 1
+                if sections[chosenIndex].section > -1  &&  sections[chosenIndex].section < 48 {
+                    self.sections[chosenIndex].section += 1
+                }
             }
         }
-        
     }
     
     mutating func decreaseSection(section: Section) {
         if let chosenIndex: Int = sections.firstIndext(matching: section) {
             if self.sections[chosenIndex].selected == true {
-                self.sections[chosenIndex].section -= 1
+                if sections[chosenIndex].section > 0  &&  sections[chosenIndex].section < 49 {
+                    self.sections[chosenIndex].section -= 1
+                }
             }
         }
     }
     
 
-    
-    
     init(totalAmountOfSections: Int, sectionContent: (Int) -> Int) {
         sections = Array<Section>()
         for idIndex in 0..<totalAmountOfSections {

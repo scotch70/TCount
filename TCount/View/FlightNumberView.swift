@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct FlightNumberView: View {
-    
-    @State var flightNumber: String = ""
+    @ObservedObject var flightViewModel = FlightNumberViewModel()
     
     var body: some View {
         VStack {
@@ -17,23 +16,21 @@ struct FlightNumberView: View {
             Text("Flight number")
                 .font(.largeTitle)
                 .fontWeight(.semibold)
+            Text("Fill out in case A+C less then: 138 - (700) / 177 - (800)")
             Form {
                 Section {
-                    TextField("Flight number", text: $flightNumber)
+                    TextField("Flight number", text: $flightViewModel.flightNumbers)
                         .disableAutocorrection(true)
                         .padding()
                         .cornerRadius(5.0)
                 }
             }
             NavigationLink(destination: SectionCountView(sectionViewModel: CountViewModel())) {
-                Text("Retrieve data")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.green)
-                    .cornerRadius(10)
+                TextView(text: "Retrieve Data")
             }
         }
+        .padding()
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
